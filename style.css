@@ -1,0 +1,358 @@
+body {
+    background-image: url("back.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.bottom {
+    position: absolute;
+    width: 250px;
+    height: 200px;
+    border-radius: 60px;
+    top: 50%;
+    left: 50%;
+    margin-top: -70px;
+    margin-left: -125px;
+    background: linear-gradient(rgb(255, 160, 176), rgb(255, 237, 251));
+
+}
+
+.bottom::before {
+    content: '';
+    top: -7px;
+    background-color: rgb(255, 128, 149);
+    width: 250px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.bottom::after {
+    content: '';
+    top: -7px;
+    background-color: rgb(255, 68, 99);
+    width: 250px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.dancer,
+.dancegif {
+    position: absolute;
+    bottom: 160px;
+    z-index: 999;
+}
+
+.key {
+    top: 50%;
+    bottom: 50%;
+    left: -20%;
+    position: absolute;
+    width: 50px;
+    height: 10px;
+    background: linear-gradient(rgb(139, 139, 139), rgb(255, 237, 251)); 
+    cursor: pointer;
+    transition: transform 1s linear;
+}
+
+.key::before {
+    content: '';
+    position: absolute;
+    border: 4px solid rgb(139, 139, 139);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    top: 4px;
+}
+
+.key::after {
+    content: '';
+    position: absolute;
+    border: 4px solid rgb(139, 139, 139);
+    border-radius: 50%;
+    bottom: 70%;
+    width: 20px;
+    height: 20px;
+}
+
+.key.clicked {
+    animation: rotateX 4.7s infinite;
+}
+
+@keyframes rotateX {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(360deg); /* หมุนทั้งวง 360 องศา */
+    }
+}
+
+.coder {
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+    bottom: 0px;
+}
+
+/* Letter section */
+
+@keyframes upthenscale {
+    0% {
+      transform: translateY(250px);
+    }
+    
+    50% {
+      transform: translateY(0);
+    }
+    
+    60% {
+      height: 300px;
+      width: 282px;
+      transform: translateY(0);
+    }
+    
+    100% { 
+      height: 700px;
+      width: 600px; 
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scalethendown {
+    0% {
+      height:  250px;
+      width: 100%; 
+      transform: translateY(0);
+    }
+    
+    50% {
+      height: 100px;
+      width: 282px;
+      transform: translateY(0);
+    }
+    
+    60% {
+      transform: translateY(0);
+    }
+    
+    100% { 
+      transform: translateY(250px);
+    }
+  }
+  
+  @keyframes waitfade {
+    0%, 50% {
+      opacity: 0;
+    }
+    
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes wiggle {
+    0% {
+      transform: translateY(310px) rotate(0);
+    }
+    
+    25% {
+      transform: translateY(310px) rotate(2deg);
+    }
+    
+    50% {
+      transform: translateY(310px) rotate(0deg);
+    }
+    
+    75% {
+      transform: translateY(310px) rotate(-2deg);
+    }
+    
+    100% {
+      transform: translateY(310px) rotate(0);
+    }
+  }
+  
+  
+  .letter {
+    margin: auto;
+    max-width: 500px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    display: block;
+  }
+  
+  .letter--open .paper {
+    animation-name: upthenscale;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+  }
+  
+  .letter--close .paper {
+    animation-name: scalethendown;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+  }
+  
+  .letter--open .paper-content {
+    animation-name: waitfade;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+  }
+  
+  .letter--open .envelope {
+    animation: pause;
+  }
+  
+  .paper-content {
+    color: #000000;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    padding: 10px;
+    opacity: 0;
+  }
+  
+  .paper {
+    height: 50px;
+    width: 90px;
+    background: #f1f0c3;
+    transform: translateY(250px);
+    margin: 0 auto;
+    transition: transform 0.3s 0.1s ease;
+    border-radius: 2px;
+    position: relative;
+  }
+  
+  .envelope {
+    width: 282px;
+    height: 180px;
+    background: #f36363;
+    position: relative;
+    margin: auto;
+    z-index: 2;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: box-shadow 0.3s ease;
+    transform: translateY(310px);
+    animation: wiggle 0.3s 0.2s infinite;
+  }
+  
+  .envelope-paper {
+    width: 50px;
+    height: 170px;
+    background: #f1f0c3;
+    transform: translateY(0);
+    margin: 0 auto;
+    transition: transform 0.3s 0.1s ease;
+    border-radius: 2px;
+    position: absolute;
+    border: 2px solid transparent;
+  }
+  
+  .letter--open .envelope-paper {
+    visibility: hidden;
+  }
+  
+  .letter--open .envelope-detail::after {
+     visibility: hidden;
+   }
+  
+  
+  .letter--close .envelope-paper {
+    visibility: hidden;
+  }
+  
+  .envelope-flap {
+    content: '';
+    width: 0; 
+    height: 0; 
+    border-left: 45px solid transparent;
+    border-right: 45px solid transparent;
+    border-bottom: 45px solid #f36363;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    transform: translateY(0);
+  }
+  
+  .letter--open .envelope-flap {
+    transform: translateY(-45px);
+  }
+  
+  .letter--open .envelope-detail {
+    border-top: 2px solid #e25b5b;
+  }
+  
+  .envelope-detail {
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      display: block;
+      position: absolute;
+      background: #f36363;
+      border-top: 2px solid transparent;
+      &:before {
+      content: '';
+      width: 70px; 
+      height: 70px;
+      background: #f36363;
+      display: inline-block;
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 30px;
+      margin: auto;
+      transform: rotate(45deg);
+      border: 4px solid #e65454;
+    }
+    &:after {
+      content: '';
+      width: 70px; 
+      height: 70px;
+      background: #f36363;
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -45px;
+      margin: auto;
+      transform: rotate(45deg);
+      border: 4px solid #e65454;
+    }
+  }
+  
+  .envelope__fold {
+    height: 25px;
+    width: 86px;
+    background: #f36363;
+    border: 4px solid #e65454;
+    display: block;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+  }
+  
+  .paper-close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    display: inline-block;
+    cursor: pointer;
+  }

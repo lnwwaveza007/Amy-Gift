@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Box</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div class="MusicBox">
+        <div class="bottom">
+            <img id="dancer" class="dancer" src="static.png" width="100%" height="100%">
+            <div class="key" onclick="start();">
+                <audio id="audio">
+                    <source src="song.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+    </div>
+    <footer class="coder">&copy; Monisha (Rebuild it by Lnwwaveza007)</footer>
+    <script src="script2.js"></script>
+    <script src="https://cdn.tutorialjinni.com/notify/0.4.2/notify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        $.notify.defaults({ className: "info" });
+        $(document).ready(function() {
+            $(".key").notify("Click here to start",{ position: "left" });
+        })
+    </script>
+</body>
+</html>
